@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Öğretmenler</title>
+</head>
+<body>
+    <div class="container">
+        <a href="index"><div class="menu">Anasayfa</div></a>
+        <a href="student"><div class="menu">Öğrenciler</div></a>
+        <a href="teacher"><div class="menu">Öğretmenler</div></a>
+        <a href="lesson"><div class="menu">Dersler</div></a>
+        </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td style="text-align: center;">Id</td>
+                    <td style="text-align: center;">Name</td>
+                    <td style="text-align: center;">Surname</td>
+                    <td style="text-align: center;">Gender</td>
+                    <td style="text-align: center;">Lesson Code</td>
+                    <td style="text-align: center;">Create Date</td>
+                </tr>
+            </thead>
+            <tbody>
+            <% result.forEach(element => {%>
+                <tr>
+                    <td><%=element._id %></td>
+                    <td><%=element.name %></td>
+                    <td><%=element.surname %></td>
+                    <td><%=element.gender %></td>
+                    <td><%=element.lessonCode %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+        </table>
+    </div>
+</body>
+</html>
