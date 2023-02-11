@@ -27,6 +27,13 @@ app.get("/",(req,res)=>{
 app.get("/add",(req,res)=>{
     res.render('add');
 });
+app.get("/addteacher",(req,res)=>{
+    res.render('addteacher');
+});
+app.get("/addlesson",(req,res)=>{
+    res.render('addlesson');
+});
+
 app.get("/index",(req,res)=>{ //Diğer sayfalardan Anasayfaya dönmek için 
     res.redirect('/');
 });
@@ -56,14 +63,32 @@ app.post('/add',(req,res)=>{
     })
 });
 
-app.delete('/delete/:id',(req,res)=>{
-    const id = req.params.id
-    Student.findByIdAndDelete(id).then((result)=>{
-        res.json({link:'/student'})
+app.post('/addteacher',(req,res)=>{
+    const ogretmen = new Teacher(req.body);
+    ogretmen.save().then((result)=>{
+        res.redirect('/teacher');
     }).catch((err)=>{
         console.log(err);
     })
-})
+});
+
+app.post('/addlesson',(req,res)=>{
+    const ders = new Lesson(req.body);
+    ders.save().then((result)=>{
+        res.redirect('/lesson');
+    }).catch((err)=>{
+        console.log(err);
+    })
+});
+
+// app.delete('/delete/:id',(req,res)=>{
+//     const id = req.params.id
+//     Student.findByIdAndDelete(id).then((result)=>{
+//         res.json({link:'/student'})
+//     }).catch((err)=>{
+//         console.log(err);
+//     })
+// })
 app.listen(port, () => {
     console.log(`Server Started at ${port}`);
 })

@@ -24,8 +24,8 @@
                         <td style="text-align: center;">Surname</td>
                         <td style="text-align: center;">Gender</td>
                         <td style="text-align: center;">Create Date</td>
-                        <td style="text-align: center;">Create</td>
-                        <td style="text-align: center;">Delete</td>
+                        <td><a href="add"><button type="submit" style="background-color: lightblue;">Yeni Kayıt</button></a></td>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -36,8 +36,7 @@
                         <td><%=element.surname %></td>
                         <td><%=element.gender %></td>
                         <td><%=element.createdAt %></td>
-                        <td><a href="add"><button type="submit" style="background-color: lightblue;">Yeni Kayıt</button></a></td>
-                        <td><button type="button" class="delete" data-doc="<%=element._id%>">Sil</button></td>
+                        <!-- <td><button type="button" class="delete" data-doc="<%=element._id%>">Sil</button></td> -->
                     </tr>
                 <% }) %>
             </tbody>
